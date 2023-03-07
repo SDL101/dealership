@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>Customers</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body>
+    <h1>Customers</h1>
+    <p><strong>Site Navigation Links:</strong></p>
+    [ <a href="cars.html">Cars</a> | <a href="employees.html">Employees</a> |
+    <a href="salecars.html">Sale cars</a> |
+    <a href="customers.html">Customers</a> | <a href="sales.html">Sales</a> |
+    <a href="dealerships.html">Dealerships</a>]
+    <div id="browse" style="display: block">
+      <p><strong>Customers</strong></p>
+      <table border="1" cellpadding="5">
+        <tr>
+          <th><a></a></th>
+          <th></th>
+          <th>Customers id</th>
+          <th>first name</th>
+          <th>last name</th>
+          <th>address</th>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">1</td>
+          <td>Lewis</td>
+          <td align="center">Hamilton</td>
+          <td align="center">7771 Fast Drive</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">2</td>
+          <td>Speedy</td>
+          <td align="center">Gonzales</td>
+          <td align="center">1010 Mountain Road</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">3</td>
+          <td>Ken</td>
+          <td>Block</td>
+          <td align="center">1314 Drifty Drive</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <!-- browse -->
+    <div id="insert" style="display: block">
+      <form id="addCustomer">
+        <legend><strong>Add Customer</strong></legend>
+        <fieldset class="fields">
+          <label> customer id </label> <input type="text" name="customer-id" />
+          <label> first name</label> <input type="text" name="firstname" />
+          <label>last name </label> <input type="text" name="lastname " />
+          <label> address </label> <input type="text" name="address" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="addCustomer"
+          value="Add a customer"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+      <!--add new customer-->
+    </div>
+    <!-- insert -->
+
+    <p>&nbsp;</p>
+    <div id="update" style="display: block">
+      <form id="updateCustomer">
+        <legend><strong>Update Customer</strong></legend>
+        <fieldset class="fields">
+          <label> customer id </label> <input type="text" name="customer-id" />
+          <label> first name</label> <input type="text" name="firstname" />
+          <label>last name </label> <input type="text" name="lastname " />
+          <label> address </label> <input type="text" name="address" />
+          <input type="text" name="dealership-id" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="UpdateEmployee"
+          value="Save Update Employee"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- update -->
+    <p>&nbsp;</p>
+    <div id="delete" style="display: block">
+      <form id="deleteCustomer">
+        <legend><strong>Delete Customer</strong></legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>Customer id: </label>
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="DeleteCustomer"
+          value="Delete Customer"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- delete -->
+  </body>
+</html>

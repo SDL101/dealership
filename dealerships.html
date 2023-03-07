@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>Dealerships</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body>
+    <h1>Dealerships</h1>
+    <p><strong>Site Navigation Links:</strong></p>
+    [ <a href="cars.html">Cars</a> | <a href="employees.html">Employees</a> |
+    <a href="salecars.html">Sale cars</a> |
+    <a href="customers.html">Customers</a> | <a href="sales.html">Sales</a> |
+    <a href="dealerships.html">Dealerships</a>]
+    <div id="browse" style="display: block">
+      <p><strong>Dealerships</strong></p>
+      <table border="1" cellpadding="5">
+        <tr>
+          <th><a></a></th>
+          <th></th>
+          <th>dealership id</th>
+          <th>name</th>
+          <th>address</th>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">1</td>
+          <td>Main St Downtown Dealership</td>
+          <td align="center">123 Main St, Planet Earth</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">2</td>
+          <td>Seaside Dealership</td>
+          <td align="center">800 Seaside St, Planet Earth</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">3</td>
+          <td>Beverley Hills Dealership</td>
+          <td align="center">530 Big Money Drive, Planet Earth</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <!-- browse -->
+    <div id="insert" style="display: block">
+      <form id="addCar">
+        <legend><strong>Add Dealership</strong></legend>
+        <fieldset class="fields">
+          <label> dealership id </label>
+          <input type="text" name="dealership-id" /> <label> name</label>
+          <input type="text" name="name" /> <label>address </label>
+          <input type="text" name="address" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="addDealership"
+          value="Add a Dealership"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+      <!--add new Dealership-->
+    </div>
+    <!-- insert -->
+
+    <p>&nbsp;</p>
+    <div id="update" style="display: block">
+      <form id="updateDealership">
+        <legend><strong>Update Dealership</strong></legend>
+        <fieldset class="fields">
+          <label> dealership id </label>
+          <input type="text" name="dealership-id" /> <label> name</label>
+          <input type="text" name="name" /> <label>address </label>
+          <input type="text" name="address" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="UpdateDealership"
+          value="Save Update Dealership"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- update -->
+    <p>&nbsp;</p>
+    <div id="delete" style="display: block">
+      <form id="deleteDealership">
+        <legend><strong>Delete Dealership</strong></legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>Dealership id: </label>
+          <label> name: </label>
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="DeleteDealership"
+          value="Delete Dealership"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- delete -->
+  </body>
+</html>

@@ -1,0 +1,120 @@
+body {
+  background: linear-gradient(to bottom right, #5b70ce, #7b0391);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 20px;
+}
+.nav-links {
+  text-align: center;
+}
+
+a {
+  color: rgb(8, 193, 240);
+}
+
+#myTableContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 3px solid black; /* increase the border thickness */
+}
+
+td,
+th {
+  border: 2px solid black; /* increase the border thickness */
+  padding: 10px; /* increase the cell padding for more space */
+}
+
+.header {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h1 {
+  animation: move-text 10s linear infinite;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+@keyframes move-text {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+#m_browse {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+#m_browse table {
+  margin: 20px 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#m_browse th,
+#m_browse td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#m_browse th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+#m_insert,
+#m_update,
+#m_delete {
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
+}
+
+.m_fields label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+legend {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+button[type="submit"],
+button[type="submitUpdateSaleCar"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0d9412;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover,
+button[type="submitUpdateSaleCar"]:hover {
+  background-color: #0ff816;
+}

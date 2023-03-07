@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="app.css" />
+    <title>Sale Cars</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+  <div class="header"><h1>Sale Cars</h1></div>
+<div class="nav-links">
+  <p><strong>Site Navigation Links</strong></p>
+  [ <a href="cars.html">Cars</a> | <a href="employees.html">Employees</a> |
+  <a href="salecars.html">Sale cars</a> |
+  <a href="customers.html">Customers</a> | <a href="sales.html">Sales</a> |
+  <a href="dealerships.html">Dealerships </a> ]
+</div>
+<!-- ------------------READ TABLE------------------------ -->
+
+     <div id="tableHeader">
+  <h3><u>Sale ID and Car ID Table</u></h3>
+</div>
+<div id="myTableContainer"></div>
+      </p>
+      <p id="demo"></p>
+    </div>
+<p>&nbsp;</p>
+<!-- ------------------CREATE FORM------------------------ -->
+
+    <div id="insert" style="display: block">
+      <form id="addSaleCar">
+        <legend><strong><u>Add Sale Car</u></strong></legend>
+        <fieldset class="fields">
+          <label> Sale ID: </label> <input type="text" name="sale-id" />
+          <label> Car ID:</label> <input type="text" name="car-id" />
+        </fieldset>
+        <button type="submit">Add Car</button>
+      </form>
+    </div>
+<!-- ------------------UPDATE FORM------------------------ -->
+<p>&nbsp;</p>
+<div>
+<form id="updateSaleCar">
+              <legend><strong><u>Update Sale Car</u></strong></legend>
+              <fieldset class="fields">
+  <label for="sale_id">Sale ID:</label>
+  <input type="text" name="sale_id" id="sale_id" required />
+
+  <label for="car_id">Original Car ID:</label>
+  <input type="text" name="car_id" id="car_id" required />
+  </select>
+
+  <label for="car_id2">New Car ID:</label>
+    <select name="car_id2" id="car_id2" required></select>
+    </fieldset>
+</div>
+  <button type="submit">Update Car</button>
+</form>
+
+<!-- -------------------DELETE FORM----------------------- -->
+
+    <p>&nbsp;</p>
+    <div id="delete" style="display: block">
+      <form id="deleteSaleCar">
+        <legend><strong><u>Delete Sale Car</u></strong></legend>
+        <fieldset class="fields">
+          <label> sale id: </label> <input type="text" name="sale-id" />
+          <label> car id: </label> <input type="text" name="car-id" />
+        </fieldset>
+        <button type="submit">Delete Car</button>
+      </form>
+    </div>
+
+    <!-----------CREATE FUNCTION------------------------------------------------------------------------------------------------------------------------------->
+<script>
+  const addSaleCar = document.getElementById("addSaleCar");
+
+  addSaleCar.addEventListener("submit", function (e) {
+    // Prevent default behavior:
+    e.preventDefault();
+    // Create new FormData object:
+    const submitButton = addSaleCar.querySelector("button[type=submit]");
+
+    const payload = new FormData(addSaleCar);
+    const myArr = [...payload];
+    sale_id = myArr[0][1];
+    car_id = myArr[1][1];
+
+    const req = new XMLHttpRequest();
+    myUrl =
+      "http://access.engr.oregonstate.edu:3355/api/sale_cars/?sale_id=" +
+      sale_id +
+      "&car_id=" +
+      car_id;
+
+    req.open("POST", myUrl);
+
+    req.addEventListener("load", function () {
+      if (req.status === 200 && req.readyState === 4) {
+        const res = JSON.parse(req.responseText);
+        console.log("request successful");
+        console.log(res);
+      } else {
+        console.error("Error loading data: " + req.statusText);
+      }
+    });
+
+    req.addEventListener("error", function () {
+      console.error("Network error");
+    });
+
+    req.send();
+  });
+</script>
+    <!-----------READ FUNCTION------------------------------------------------------------------------------------------------------------------------------->
+
+<script>
+  const req = new XMLHttpRequest();
+const tableContainer = document.getElementById("myTableContainer");
+tableContainer.innerHTML = ''; // clear previous table contents
+
+req.open(
+  "GET",
+  "http://access.engr.oregonstate.edu:3355/api/sale_cars/all"
+);
+
+req.addEventListener("load", function () {
+  if (req.status === 200 && req.readyState === 4) {
+    const res = JSON.parse(req.responseText);
+    const arr = Object.values(res);
+    const myArr = arr[0];
+
+    // Create the table element
+    const table = document.createElement("table");
+
+    // Create a header row with column titles
+    const headerRow = document.createElement("tr");
+    const saleIdHeader = document.createElement("th");
+    saleIdHeader.textContent = "Sale ID";
+    const carIdHeader = document.createElement("th");
+    carIdHeader.textContent = "Car ID";
+    headerRow.appendChild(saleIdHeader);
+    headerRow.appendChild(carIdHeader);
+    table.appendChild(headerRow);
+
+    // Populate the table with data rows
+    for (let i = 0; i < myArr.length; i++) {
+      const rowData = myArr[i];
+      const row = document.createElement("tr");
+      const saleIdCell = document.createElement("td");
+      saleIdCell.textContent = rowData.sale_id;
+      const carIdCell = document.createElement("td");
+      carIdCell.textContent = rowData.car_id;
+      row.appendChild(saleIdCell);
+      row.appendChild(carIdCell);
+      table.appendChild(row);
+    }
+
+    // Add the table to the div element
+    tableContainer.appendChild(table);
+  } else {
+    console.error("Error loading data: " + req.statusText);
+  }
+});
+
+req.addEventListener("error", function () {
+  console.error("Network error");
+});
+
+req.send();
+
+// Add event listener to all submit buttons
+const submitButtons = document.querySelectorAll("button[type='submit']");
+submitButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    location.reload();
+  });
+});
+
+    </script>
+    <!-----------UPDATE FUNCTION------------------------------------------------------------------------------------------------------------------------------->
+   <script>
+  const updateSaleCar = document.getElementById("updateSaleCar");
+const carIdSelect = document.getElementById("car_id");
+
+// Fetch car IDs and populate select element
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "http://access.engr.oregonstate.edu:3355/api/cars/all");
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    const data = JSON.parse(xhr.responseText);
+    // const data = preData[0]
+
+// console.log("HERE IS ALL DATA", data.results.length);
+for (let i = 0; i < data.results.length; i++) {
+  const option = document.createElement("option");
+  const carId = data.results[i].car_id;
+  option.value = carId;
+  option.text = carId;
+  document.getElementById("car_id2").add(option);
+}
+
+        console.log("car_id: ", carId)
+// Accessing the values using dot notation
+const carMake = data.results[0].make;
+const carColor = data.results[1].color;
+const carId = data.results[2].car_id;
+// Accessing the values using bracket notation
+const carModel = data.results[3]['model'];
+const carMileage = data.results[4]['mileage'];
+
+// console.log("we here", carMake, carColor, carId, carModel, carMileage); // Toyota Blue 3 Impala 28000
+    data.forEach((car) => {
+      const option = document.createElement("option");
+      option.value = car.car_id;
+      option.text = car.car_id;
+      carIdSelect.add(option);
+    });
+  } else {
+    console.error("Error loading data: " + xhr.statusText);
+  }
+};
+xhr.onerror = function() {
+  console.error("Network error");
+};
+xhr.send();
+
+updateSaleCar.addEventListener("submit", function(e) {
+  // Prevent default behavior:
+  e.preventDefault();
+  // Create new FormData object:
+  const payload = new FormData(updateSaleCar);
+  const myArr = [...payload];
+  const req = new XMLHttpRequest();
+  req.open(
+    "PUT",
+    "http://access.engr.oregonstate.edu:3355/api/sale_cars/?sale_id=" +
+      myArr[0][1] +
+      "&car_id=" +
+      myArr[1][1] +
+      "&car_id2=" +
+      myArr[2][1]
+  );
+
+  req.addEventListener("load", function() {
+    if (req.status === 200 && req.readyState === 4) {
+      const res = JSON.parse(req.responseText);
+      console.log("Request successful");
+      console.log(res);
+    } else {
+      console.error("Error loading data: " + req.statusText);
+    }
+  });
+
+  req.addEventListener("error", function() {
+    console.error("Network error");
+  });
+
+  req.send();
+});
+
+</script>
+    <!-----------DELETE FUNCTION------------------------------------------------------------------------------------------------------------------------------->
+
+    <script>
+const deleteSaleCar = document.getElementById("deleteSaleCar");
+
+deleteSaleCar.addEventListener("submit", function (e) {
+  // Prevent default behavior:
+  e.preventDefault();
+  // Create new FormData object:
+  const payload = new FormData(deleteSaleCar);
+  const myArr = [...payload];
+  const sale_id = myArr[0][1];
+  const car_id = myArr[1][1];
+
+  const req = new XMLHttpRequest();
+  const myUrl =
+    "http://access.engr.oregonstate.edu:3355/api/sale_cars/?sale_id=" +
+    sale_id +
+    "&car_id=" +
+    car_id;
+
+  req.open("DELETE", myUrl);
+  req.onerror = function () {
+    console.log("Network error");
+  };
+  req.onload = function () {
+    if (req.status === 200 && req.readyState === 4) {
+      console.log(JSON.parse(req.responseText));
+    } else {
+      console.log("Request failed");
+    }
+  };
+  req.send();
+});
+    </script>
+  </body>
+</html>

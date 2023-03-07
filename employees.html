@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body>
+    <h1>Employees</h1>
+
+    <p><strong>Site Navigation Links:</strong></p>
+    [ <a href="cars.html">Cars</a> | <a href="employees.html">Employees</a> |
+    <a href="salecars.html">Sale cars</a> |
+    <a href="customers.html">Customers</a> | <a href="sales.html">Sales</a> |
+    <a href="dealerships.html">Dealerships</a>]
+    <div id="browse" style="display: block">
+      <p><strong>Employees</strong></p>
+      <table border="1" cellpadding="5">
+        <tr>
+          <th><a></a></th>
+          <th></th>
+          <th>employee id</th>
+          <th>first name</th>
+          <th>last name</th>
+          <th>dealership id</th>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">1</td>
+          <td>Allie</td>
+          <td align="center">Gater</td>
+          <td align="center">7</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">2</td>
+          <td>Anita</td>
+          <td align="center">Bath</td>
+          <td align="center">3</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">3</td>
+          <td>Chris</td>
+          <td>P. Bacon</td>
+          <td align="center">1</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <!-- browse -->
+    <div id="insert" style="display: block">
+      <form id="addEmployee">
+        <legend><strong>Add Employee</strong></legend>
+        <fieldset class="fields">
+          <label> employee id </label> <input type="text" name="employee-id" />
+          <label> first name</label> <input type="text" name="firstname" />
+          <label>last name </label> <input type="text" name="lastname " />
+          <label> dealership id </label>
+          <input type="text" name="dealership-id" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="addEmployee"
+          value="Add an Employee"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+      <!--add new Employee-->
+    </div>
+    <!-- insert -->
+
+    <p>&nbsp;</p>
+    <div id="update" style="display: block">
+      <form id="updateEmployee">
+        <legend><strong>Update Employee</strong></legend>
+        <fieldset class="fields">
+          <label> employee id </label> <input type="text" name="employee-id" />
+          <label> first name</label> <input type="text" name="firstname" />
+          <label>last name </label> <input type="text" name="lastname" />
+          <label> dealership id </label>
+          <input type="text" name="dealership-id" />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="UpdateEmployee"
+          value="Save Update Employee"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- update -->
+    <p>&nbsp;</p>
+    <div id="delete" style="display: block">
+      <form id="deleteEmployee">
+        <legend><strong>Delete Employee</strong></legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>employee id: </label>
+          <label> vin: </label>
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="DeleteEmployee"
+          value="Delete Employee"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- delete -->
+  </body>
+</html>

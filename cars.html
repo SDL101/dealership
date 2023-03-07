@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>Cars</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+
+  <body>
+    <h1>Cars</h1>
+    <p><strong>Site Navigation Links:</strong></p>
+    [ <a href="cars.html">Cars</a> | <a href="employees.html">Employees</a> |
+    <a href="salecars.html">Sale cars</a> |
+    <a href="customers.html">Customers</a> | <a href="sales.html">Sales</a> |
+    <a href="dealerships.html">Dealerships</a>]
+    <div id="browse" style="display: block">
+      <p><strong>Browse Cars</strong></p>
+      <table border="1" cellpadding="5">
+        <tr>
+          <th><a></a></th>
+          <th></th>
+          <th>car id</th>
+          <th>vin</th>
+          <th>make</th>
+          <th>model</th>
+          <th>color</th>
+          <th>mileage</th>
+          <th>sold</th>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">1</td>
+          <td>4Y1SL65848Z411439</td>
+          <td align="center">Tesla</td>
+          <td>Model Y</td>
+          <td align="center">Red</td>
+          <td>100,000</td>
+          <td>False</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">2</td>
+          <td>5T1SL65848Z411437</td>
+          <td align="center">GMC</td>
+          <td>Hummer EV</td>
+          <td align="center">Green</td>
+          <td>35,000</td>
+          <td>True</td>
+        </tr>
+        <tr>
+          <td><a href="#">Edit</a></td>
+          <td><a href="#">Delete</a></td>
+          <td align="center">3</td>
+          <td>1M1XS65448Z481459</td>
+          <td>Porsche</td>
+          <td>Taycan</td>
+          <td align="center">Blue</td>
+          <td>17,550</td>
+          <td>False</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+    </div>
+    <!-- browse -->
+    <div id="insert" style="display: block">
+      <form id="addCar">
+        <legend><strong>Add Car</strong></legend>
+        <fieldset class="fields">
+          <label> car id </label> <input type="text" name="car-id" />
+          <label> vin </label> <input type="text" name="vin" />
+          <label> make </label> <input type="text" name="make" />
+          <label> model </label> <input type="text" name="model" />
+          <label> color </label> <input type="text" name="color" />
+          <label> mileage </label> <input type="text" name="mileage" />
+          <label> sold </label> <input type="text" name="sold" />
+        </fieldset>
+        <input class="btn" type="submit" id="addPlanet" value="Add a Car" />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+      <!--add new car-->
+    </div>
+    <!-- insert -->
+
+    <p>&nbsp;</p>
+    <div id="update" style="display: block">
+      <form id="updateCar">
+        <legend><strong>Update Car</strong></legend>
+        <fieldset class="fields">
+          <label> car id </label>
+          <input type="text" name="car-id" />
+          <label> vin </label>
+          <input type="text" name="vin" value="" />
+          <label> make </label>
+          <input type="text" value="e.g Porsche..." name="Make" />
+          <label> model </label>
+          <input type="text" name="model" value="e.g. Taycan..." />
+          <label> color </label>
+          <input type="text" name="language" value="e.g. Rainbow..." />
+          <label> mileage </label>
+          <input type="text" name="mileage" value="e.g. X,XXX,XXX..." />
+          <label> sold</label>
+          <input type="text" name="sold" value="True or False..." />
+        </fieldset>
+        <input
+          class="btn"
+          type="submit"
+          id="UpdateCar"
+          value="Save Update Car"
+        />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- update -->
+    <p>&nbsp;</p>
+    <div id="delete" style="display: block">
+      <form id="deleteCar">
+        <legend><strong>Delete Car</strong></legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>car id: </label>
+          <label> vin: </label>
+        </fieldset>
+        <input class="btn" type="submit" id="DeleteCar" value="Delete Car" />
+        <input class="btn" type="button" value="cancel" />
+      </form>
+    </div>
+    <!-- delete -->
+  </body>
+</html>
